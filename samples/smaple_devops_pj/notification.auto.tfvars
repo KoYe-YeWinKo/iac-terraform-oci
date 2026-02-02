@@ -1,3 +1,6 @@
+# Common Variables
+compartment_id = "ocid1.compartment.oc1..aaaaaaaaexamplecompartmentid"
+
 # Notification Topic Configuration
 notification_topic_compartment_id = "ocid1.compartment.oc1..aaaaaaaaexamplecompartmentid"
 notification_topic_name           = "sample-notification-topic"
