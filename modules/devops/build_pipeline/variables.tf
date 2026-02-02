@@ -1,13 +1,13 @@
 variable "build_pipeline_parameters" {
   description = "A list of parameters for the build pipeline"
-  type        = object({
+  type = object({
     items = list(object({
       default_value = string
       description   = string
       name          = string
     }))
   })
-  default     = []
+  default = []
 }
 
 varaible "defined_tags" {
