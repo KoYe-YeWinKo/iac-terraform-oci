@@ -42,18 +42,25 @@ variable "devops_project_notification_topic_id" {
 
 variable "devops_project_repository_approval_rules_items" {
   description = "Approval rules items for the DevOps project repository."
-  type        = list(any)
-  default     = []
+  type = list(object({
+    destination_branch  = string
+    min_approvals_count = number
+    name                = string
+    reviewers = list(object({
+      principal_id = string
+    }))
+  }))
+  default = []
 }
 
-variable "devops_project_repository_merge_settings_allow_merge_strategies" {
+variable "devops_project_repository_merge_settings_allowed_merge_strategies" {
   description = "Allowed merge strategies for the DevOps project repository."
   type        = list(string)
-  default     = []
+  default     = ["MERGE_COMMIT", "FAST_FORWARD_ONLY"]
 }
 
 variable "devops_project_repository_merge_settings_default_merge_strategy" {
   description = "Default merge strategy for the DevOps project repository."
   type        = string
-  default     = null
+  default     = "MERGE_COMMIT"
 }

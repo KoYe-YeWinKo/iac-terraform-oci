@@ -1,4 +1,4 @@
-resource "devops_project" "devops_project" {
+resource "oci_devops_project" "devops_project" {
   compartment_id = var.devops_project_compartment_id
   name           = var.devops_project_name
   description    = var.devops_project_description

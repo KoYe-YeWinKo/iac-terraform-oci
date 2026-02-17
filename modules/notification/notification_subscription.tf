@@ -1,4 +1,4 @@
-resource "oci_ons_notification_subscription" "notification_subscription" {
+resource "oci_ons_subscription" "notification_subscription" {
   for_each       = var.notification_subscription_map
   compartment_id = each.value.notification_subscription_compartment_id
   protocol       = each.value.notification_subscription_protocol

@@ -1,4 +1,4 @@
 output "devops_project_id" {
   description = "OCID of the DevOps Project"
-  value       = oci_devops_project.devops_project.id
+  value       = module.devops_project.devops_project_id
 }

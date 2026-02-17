@@ -1,0 +1,75 @@
+# Notification Topic Configuration
+notification_topic_map = {
+  "topic1" = {
+    notification_topic_compartment_id = "<compartment_ocid_here>"
+    notification_topic_name           = "sample-notification-topic1"
+    notification_topic_description    = "Sample notification topic1 for DevOps project"
+
+    notification_topic_freeform_tags = {
+      "Environment" = "Development"
+      "Project"     = "DevOps"
+      "Team"        = "Platform"
+    }
+    notification_topic_defined_tags = null
+
+    # Notification Subscriptions Configuration
+    notification_subscription_map = {
+      email_subscription_1 = {
+        notification_subscription_compartment_id = "<compartment_ocid_here>"
+        notification_subscription_protocol       = "EMAIL"
+        notification_subscription_endpoint       = "test1@gmail.com"
+        notification_subscription_freeform_tags = {
+          "Type" = "Email"
+        }
+        notification_subscription_defined_tags = null
+      }
+
+      email_subscription_2 = {
+        notification_subscription_compartment_id = "<compartment_ocid_here>"
+        notification_subscription_protocol       = "EMAIL"
+        notification_subscription_endpoint       = "test2@gmail.com"
+        notification_subscription_freeform_tags = {
+          "Type" = "EMAIL"
+        }
+        notification_subscription_defined_tags = null
+      }
+    }
+  },
+  "topic2" = {
+    notification_topic_compartment_id = "<compartment_ocid_here>"
+    notification_topic_name           = "sample-notification-topic2"
+    notification_topic_description    = "Sample notification topic2 for DevOps project"
+
+    notification_topic_freeform_tags = {
+      "Environment" = "Development"
+      "Project"     = "DevOps"
+      "Team"        = "Platform"
+    }
+
+
+    notification_topic_defined_tags = null
+
+    # Notification Subscriptions Configuration
+    notification_subscription_map = {
+      email_subscription = {
+        notification_subscription_compartment_id = "<compartment_ocid_here>"
+        notification_subscription_protocol       = "EMAIL"
+        notification_subscription_endpoint       = "yewinko.jp@gmail.com"
+        notification_subscription_freeform_tags = {
+          "Type" = "Email"
+        }
+        notification_subscription_defined_tags = null
+      }
+
+      slack_subscription = {
+        notification_subscription_compartment_id = "<compartment_ocid_here>"
+        notification_subscription_protocol       = "EMAIL"
+        notification_subscription_endpoint       = "yewinko3@gmail.com"
+        notification_subscription_freeform_tags = {
+          "Type" = "EMAIL"
+        }
+        notification_subscription_defined_tags = null
+      }
+    }
+  }
+}

@@ -1,0 +1,43 @@
+devops_project_compartment_id = "ocid1.compartment.oc1..aaaaaaaaxaqzkarxep4hb4uv3a6yfyho6qzub4xtu6kdeecoyphniwch526q"
+
+devops_project_name = "sample-devops-project"
+
+devops_project_description = "Sample DevOps project for demonstration purposes"
+
+devops_project_freeform_tags = {
+  "Environment" = "Sample"
+  "Project"     = "DevOps"
+}
+
+devops_project_defined_tags = null
+
+devops_project_notification_topic_id = "ocid1.onstopic.oc1.ap-tokyo-1.amaaaaaa7eadd2yaljfdzlhlckgsdsvf7bbrpx46xwxhhg7uuzxcwqn7k7ba"
+
+devops_project_repository_approval_rules_items = [
+  {
+    destination_branch  = "main"
+    min_approvals_count = 1
+    name                = "approval_rule_1"
+    reviewers = [
+      {
+        principal_id = "ocid1.user.oc1..aaaaaaaan4qrtq3pwdoxgbgrvgmqg7roaxwswaddlenxrbcophshm4laxj2a"
+      }
+    ]
+  },
+  {
+    destination_branch  = "develop"
+    min_approvals_count = 2
+    name                = "approval_rule_2"
+    reviewers = [
+      {
+        principal_id = "ocid1.user.oc1..aaaaaaaan4qrtq3pwdoxgbgrvgmqg7roaxwswaddlenxrbcophshm4laxj2a"
+        }, {
+        principal_id = "ocid1.user.oc1..aaaaaaaaodhijkpyuketbvszcbxrto3w34hasoqqh4xzmcwr6mggwqmlyb5q"
+      }
+    ]
+  }
+]
+
+devops_project_repository_merge_settings_allowed_merge_strategies = ["MERGE_COMMIT", "FAST_FORWARD_ONLY"]
+
+devops_project_repository_merge_settings_default_merge_strategy = "MERGE_COMMIT"
