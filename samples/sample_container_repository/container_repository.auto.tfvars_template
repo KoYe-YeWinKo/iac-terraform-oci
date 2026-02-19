@@ -1,0 +1,46 @@
+# ============================================================================
+# Sample values for container repository module
+# ============================================================================
+# This file provides example values for container configuration and repository.
+# - Required: `container_configuration_namespace`, `container_repository_compartment_id`, `container_repository_display_name`
+# - Optional values are shown commented out; uncomment and customize as needed.
+
+
+# Whether to auto-create repository on first push (optional, default: true)
+container_configuration_is_repository_created_on_first_push = false
+
+# Container configuration namespace (tenancy namespace)
+container_configuration_compartment_id = "<compartment-ocid>"
+
+
+# ============================================================================
+# Container Repository Settings
+# ============================================================================
+container_repository_map = {
+  example_repo1 = {
+    container_repository_compartment_id = "<compartment-ocid>"
+    container_repository_display_name   = "example-repo1"
+    container_repository_is_immutable   = false
+    container_repository_is_public      = false
+    container_repository_readme_content = "# My Container Repository\n\nThis is an example repository."
+    container_repository_readme_format  = "MARKDOWN"
+    container_repository_defined_tags   = {}
+    container_repository_freeform_tags = {
+      "Environment" = "dev"
+      "ManagedBy"   = "Terraform"
+    }
+  },
+  example_repo2 = {
+    container_repository_compartment_id = "<compartment-ocid>"
+    container_repository_display_name   = "example-repo2"
+    container_repository_is_immutable   = false
+    container_repository_is_public      = false
+    container_repository_readme_content = "# My Container Repository\n\nThis is an example repository."
+    container_repository_readme_format  = "MARKDOWN"
+    container_repository_defined_tags   = {}
+    container_repository_freeform_tags = {
+      "Environment" = "dev"
+      "ManagedBy"   = "Terraform"
+    }
+  }
+}

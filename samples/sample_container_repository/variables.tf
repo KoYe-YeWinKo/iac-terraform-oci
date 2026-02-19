@@ -26,14 +26,18 @@ variable "my_oci_region" {
   type        = string
 }
 
+
+
+# Container configuration namespace (tenancy namespace)
+variable "container_configuration_compartment_id" {
+  description = "The OCID of the compartment for container configuration"
+  type        = string
+}
+
 # ============================================================================
 # Container Repository Module Variables
 # ============================================================================
 
-variable "container_configuration_namespace" {
-  description = "The namespace for container configuration (typically the tenancy namespace)"
-  type        = string
-}
 
 variable "container_configuration_is_repository_created_on_first_push" {
   description = "Whether to create a repository automatically on first push"
@@ -41,48 +45,19 @@ variable "container_configuration_is_repository_created_on_first_push" {
   default     = true
 }
 
-variable "container_repository_compartment_id" {
-  description = "The OCID of the compartment where the container repository will be created"
-  type        = string
-}
 
-variable "container_repository_display_name" {
-  description = "Display name for the container repository"
-  type        = string
-}
-
-variable "container_repository_is_immutable" {
-  description = "Whether the repository is immutable (prevents image modification/deletion)"
-  type        = bool
-  default     = false
-}
-
-variable "container_repository_is_public" {
-  description = "Whether the repository is public (allows anonymous access)"
-  type        = bool
-  default     = false
-}
-
-variable "container_repository_readme_content" {
-  description = "Content of the repository README"
-  type        = string
-  default     = null
-}
-
-variable "container_repository_readme_format" {
-  description = "Format of the README content (e.g., MARKDOWN, PLAINTEXT)"
-  type        = string
-  default     = null
-}
-
-variable "container_repository_defined_tags" {
-  description = "Defined tags for the container repository"
-  type        = map(map(string))
-  default     = {}
-}
-
-variable "container_repository_freeform_tags" {
-  description = "Freeform tags for the container repository"
-  type        = map(string)
-  default     = {}
+# Map of container repositories for sample configuration
+variable "container_repository_map" {
+  description = "Map of container repository definitions keyed by an arbitrary name for sample configuration"
+  type = map(object({
+    container_repository_compartment_id = string
+    container_repository_display_name   = string
+    container_repository_defined_tags   = optional(map(any), {})
+    container_repository_freeform_tags  = optional(map(string), {})
+    container_repository_is_immutable   = optional(bool, false)
+    container_repository_is_public      = optional(bool, false)
+    container_repository_readme_content = optional(string, null)
+    container_repository_readme_format  = optional(string, null)
+  }))
+  default = {}
 }

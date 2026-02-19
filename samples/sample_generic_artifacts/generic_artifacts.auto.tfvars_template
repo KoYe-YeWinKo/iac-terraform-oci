@@ -1,0 +1,65 @@
+# ============================================================================
+# Sample values for generic artifacts module
+# ============================================================================
+# This file provides example values for artifacts repository and generic artifacts.
+# - Required: `artifacts_repository_compartment_id`, `artifacts_repository_display_name`, 
+#   `generic_artifact_content_map` with artifact_path and version entries.
+# - Optional values are shown commented out; uncomment and customize as needed.
+
+# ============================================================================
+# Artifacts Repository Settings
+# ============================================================================
+artifacts_repository_compartment_id = "<compartment-ocid>"
+artifacts_repository_display_name   = "example-artifacts-repo"
+
+# Optional repository settings
+# artifacts_repository_description     = "Repository for application artifacts"
+# artifacts_repository_is_immutable    = false
+# artifacts_repository_repository_type = "GENERIC"
+
+# Repository tags
+artifacts_repository_defined_tags = {}
+artifacts_repository_freeform_tags = {
+  "Environment" = "dev"
+  "ManagedBy"   = "Terraform"
+}
+
+# ============================================================================
+# Generic Artifact Content Map
+# ============================================================================
+# Map-based configuration for managing multiple artifact entries.
+# Key: artifact identifier (e.g., "app-jar", "config-file")
+# Each entry contains: path, version, optional source/content, and tags
+
+# generic_artifact_content_map = {
+#  "app-jar" = {
+#    generic_artifact_artifact_path   = "my-app/v1.0.0/app.html"
+#    generic_artifact_content_version = "1.0.0"
+#    generic_artifact_content_source  = "my-app/v1.0.0/app.html" # Or provide "/path/to/local/artifact.html"
+#    generic_artifact_content_content = null # Or provide "base64_encoded_content_here"
+#    generic_artifact_defined_tags    = {}
+#    generic_artifact_freeform_tags = {
+#      "Type" = "Application"
+#    }
+#  }
+# Uncomment below to add another artifact entry:
+# "config-file" = {
+#   generic_artifact_artifact_path      = "my-app/config/application.yaml"
+#   generic_artifact_content_version    = "1.0.0"
+#   generic_artifact_content_source     = null
+#   generic_artifact_content_content    = null
+#   generic_artifact_defined_tags       = {}
+#   generic_artifact_freeform_tags = {
+#     "Type" = "Configuration"
+#   }
+# }
+#}
+
+# ============================================================================
+# Notes
+# ============================================================================
+# - Either `generic_artifact_content_source` OR `generic_artifact_content_content` should be provided.
+# - Use null for optional fields to skip them.
+# - Ensure artifact_path follows OCI naming conventions (lowercase, hyphenated).
+# - Version should follow semantic versioning (e.g., 1.0.0, 1.2.3-alpha).
+

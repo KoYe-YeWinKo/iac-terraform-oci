@@ -1,0 +1,133 @@
+# ============================================================================
+# KMS Vault Configuration
+# ============================================================================
+# This section contains variables for OCI KMS Vault configuration.
+# The KMS Vault is a secure key management service for encryption keys.
+
+# Required: Compartment ID where the KMS Vault will be created
+kms_vault_compartment_id = "<compartment-ocid>"
+
+# Required: Display name for the KMS Vault
+kms_vault_display_name = "my-kms-vault"
+
+# Optional: Type of KMS Vault (VIRTUAL_PRIVATE or DEFAULT)
+# Uncomment and modify as needed
+# kms_vault_type = "VIRTUAL_PRIVATE"
+
+# Optional: Defined tags for the KMS Vault (Oracle-managed tags for categorization)
+# Uncomment and modify as needed
+# kms_vault_defined_tags = {
+#   "Operations.Owner" = "DevOps Team"
+#   "Operations.Environment" = "Production"
+# }
+
+# Optional: Free-form tags for the KMS Vault (user-defined tags)
+# Uncomment and modify as needed
+# kms_vault_freeform_tags = {
+#   "Environment"     = "production"
+#   "CostCenter"      = "IT-001"
+#   "ManagedBy"       = "Terraform"
+# }
+
+# ============================================================================
+# External Key Manager Configuration (Optional)
+# ============================================================================
+# This section is for configuring external key manager integration.
+# Uncomment if you want to use an external key management service.
+
+# Optional: Enable external key manager integration
+is_kms_vault_external_key_manager = false
+
+# Optional: External key manager endpoint URL
+# kms_vault_external_key_manager_metadata_external_vault_endpoint_url = "https://external-kms.example.com"
+
+# Optional: OAuth client app ID (sensitive)
+# kms_vault_external_key_manager_metadata_oauth_metadata_client_app_id = "client-id-xxx"
+
+# Optional: OAuth client app secret (sensitive - use secret management)
+# kms_vault_external_key_manager_metadata_oauth_metadata_clientapp_secret = "client-secret-xxx"
+
+# Optional: IDCS account name URL for OAuth
+# kms_vault_external_key_manager_metadata_oauth_metadata_idcs_account_name_url = "https://idcs.example.com"
+
+# Optional: Private endpoint ID for external key manager
+# kms_vault_external_key_manager_metadata_private_endpoint_id = "ocid1.privateendpoint.oc1..example"
+
+# ============================================================================
+# Vault Restoration Configuration (Optional)
+# ============================================================================
+# This section is for restoring vault from file or Object Storage backup.
+# Uncomment if you need to restore a previously backed up vault.
+
+# Optional: Restore vault from a file
+is_kms_vault_restore_from_file = false
+
+# Optional: Content length of the restore file (in bytes)
+# kms_vault_restore_from_file_content_length = 1024
+
+# Optional: MD5 checksum of the restore file
+# kms_vault_restore_from_file_content_md5 = "abc123def456..."
+
+# Optional: Restore file content details (base64 encoded)
+# kms_vault_restore_from_file_restore_vault_from_file_details = "base64-encoded-content"
+
+# Optional: Restore vault from Object Storage
+is_kms_vault_restore_from_object_store = false
+
+# Optional: Object Storage bucket name for restoration
+# kms_vault_restore_from_object_store_bucket = "my-backup-bucket"
+
+# Optional: Destination for Object Storage restoration
+# kms_vault_restore_from_object_store_destination = "CURRENT_VAULT"
+
+# Optional: Object Storage namespace (tenancy namespace)
+# kms_vault_restore_from_object_store_namespace = "mynamespace"
+
+# Optional: Object Storage object name (backup file)
+# kms_vault_restore_from_object_store_object = "vault-backup.zip"
+
+# Optional: Object Storage URI for restoration
+# kms_vault_restore_from_object_store_uri = "https://objectstorage.region.oraclecloud.com/..."
+
+# Optional: Vault deletion schedule (ISO 8601 format)
+# kms_vault_time_of_deletion = "2026-03-31T23:59:59Z"
+
+# ============================================================================
+# KMS Key Configuration (map)
+# Provide KMS keys as a map of objects keyed by an arbitrary name. Example:
+#
+# kms_key_map = {
+#   example_key = {
+#     kms_key_compartment_id = "ocid1.compartment.oc1..example"
+#     kms_key_display_name   = "my-encryption-key"
+#     kms_key_key_shape_algorithm = "AES"
+#     kms_key_key_shape_length    = 256
+#     kms_key_protection_mode     = "HSM"
+#     kms_key_defined_tags = {}
+#     kms_key_freeform_tags  = { "Environment" = "dev" }
+#   }
+# }
+#
+# Note: Omit or set optional fields to null when not used.
+# ============================================================================
+
+kms_key_map = {
+  "kms_key_1" = {
+    kms_key_compartment_id      = "<compartment-ocid>"
+    kms_key_display_name        = "my-encryption-key"
+    kms_key_key_shape_algorithm = "AES"
+    kms_key_key_shape_length    = 16
+    kms_key_protection_mode     = "HSM"
+    kms_key_defined_tags        = {}
+    kms_key_freeform_tags       = { "Environment" = "dev" }
+  },
+  "kms_key_2" = {
+    kms_key_compartment_id      = "<compartment-ocid>"
+    kms_key_display_name        = "my-second-key"
+    kms_key_key_shape_algorithm = "RSA"
+    kms_key_key_shape_length    = 256
+    kms_key_protection_mode     = "HSM"
+    kms_key_defined_tags        = {}
+    kms_key_freeform_tags       = { "Environment" = "dev" }
+  }
+}

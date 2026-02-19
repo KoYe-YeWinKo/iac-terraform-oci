@@ -1,4 +1,11 @@
+# Provider variables (common)
+variable "my_oci_tenancy_ocid" { type = string }
+variable "my_user_ocid" { type = string }
+variable "my_user_fingerprint" { type = string }
+variable "my_user_private_key_path" { type = string }
+variable "my_oci_region" { type = string }
 
+# Build pipeline module inputs
 variable "build_pipeline_display_name" {
   description = "Display name for the build pipeline"
   type        = string
@@ -15,7 +22,6 @@ variable "build_pipeline_description" {
   default     = null
 }
 
-
 variable "build_pipeline_parameters" {
   description = "List of pipeline parameter objects"
   type = list(object({
@@ -27,15 +33,11 @@ variable "build_pipeline_parameters" {
 }
 
 variable "build_pipeline_defined_tags" {
-  description = "Defined tags for the build pipeline"
-  type        = map(string)
-  default     = {}
+  type    = map(string)
+  default = {}
 }
 
 variable "build_pipeline_freeform_tags" {
-  description = "Free-form tags for the build pipeline"
-  type        = map(string)
-  default     = {}
+  type    = map(string)
+  default = {}
 }
-
-

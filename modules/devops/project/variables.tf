@@ -64,3 +64,4 @@ variable "devops_project_repository_merge_settings_default_merge_strategy" {
   type        = string
   default     = "MERGE_COMMIT"
 }
+

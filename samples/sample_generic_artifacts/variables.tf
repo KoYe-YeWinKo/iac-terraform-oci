@@ -60,7 +60,7 @@ variable "artifacts_repository_repository_type" {
 
 variable "artifacts_repository_defined_tags" {
   description = "Defined tags for the artifacts repository"
-  type        = map(map(string))
+  type        = map(string)
   default     = {}
 }
 
@@ -70,48 +70,15 @@ variable "artifacts_repository_freeform_tags" {
   default     = {}
 }
 
-variable "generic_artifact_content_artifact_path" {
-  description = "Path of the artifact (e.g., my-app/app.jar)"
-  type        = string
-}
-
-variable "generic_artifact_content_version" {
-  description = "Version identifier for the artifact"
-  type        = string
-}
-
-variable "generic_artifact_content_source" {
-  description = "Source location of the artifact (file path or URI)"
-  type        = string
-  default     = null
-}
-
-variable "generic_artifact_content_content" {
-  description = "The content of the artifact (binary or text)"
-  type        = string
-  default     = null
-}
-
-variable "generic_artifact_content_defined_tags" {
-  description = "Defined tags for the artifact content"
-  type        = map(map(string))
-  default     = {}
-}
-
-variable "generic_artifact_content_freeform_tags" {
-  description = "Freeform tags for the artifact content"
-  type        = map(string)
-  default     = {}
-}
-
-variable "generic_artifact_defined_tags" {
-  description = "Defined tags for the generic artifact"
-  type        = map(map(string))
-  default     = {}
-}
-
-variable "generic_artifact_freeform_tags" {
-  description = "Freeform tags for the generic artifact"
-  type        = map(string)
-  default     = {}
+variable "generic_artifact_content_map" {
+  description = "Map of generic artifact content entries with paths, versions, and content"
+  type = map(object({
+    generic_artifact_artifact_path   = string
+    generic_artifact_content_version = string
+    generic_artifact_content_source  = optional(string, null)
+    generic_artifact_content_content = optional(string, null)
+    generic_artifact_defined_tags    = optional(map(map(string)), {})
+    generic_artifact_freeform_tags   = optional(map(string), {})
+  }))
+  default = {}
 }

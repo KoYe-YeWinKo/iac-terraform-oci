@@ -1,0 +1,6 @@
+# OCI Authentication Details
+my_oci_tenancy_ocid      = "<tenancy_ocid_here>"
+my_user_ocid             = "<user_ocid_here>"
+my_user_fingerprint      = "<API_key_fingerprint_here>"
+my_user_private_key_path = "<private_key_path_here>"
+my_oci_region            = "<region_here>"

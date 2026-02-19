@@ -1,0 +1,21 @@
+# Sample DevOps deployment pipeline values
+
+deploy_pipeline_display_name = "example-deployment-pipeline"
+deploy_pipeline_project_id   = "<devops-project-ocid>"
+deploy_pipeline_description  = "Example deployment pipeline created by Terraform"
+
+# Pipeline parameters (optional)
+deploy_pipeline_parameters = [
+  {
+    name          = "ENV"
+    description   = "Deployment environment"
+    default_value = "dev"
+  }
+]
+
+# Tags
+deploy_pipeline_defined_tags = {}
+deploy_pipeline_freeform_tags = {
+  "Environment" = "dev"
+  "ManagedBy"   = "Terraform"
+}

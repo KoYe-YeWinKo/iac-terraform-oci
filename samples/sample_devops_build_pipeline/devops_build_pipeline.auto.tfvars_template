@@ -1,0 +1,18 @@
+# Sample DevOps build pipeline values
+
+build_pipeline_display_name = "example-build-pipeline"
+build_pipeline_project_id   = "ocid1.devopsproject.oc1.ap-tokyo-1.amaaaaaa7eadd2yay4hwdfb5wnaefprsla6a56b6sermsbbjkjpn4i37o5hq"
+build_pipeline_description  = "Example build pipeline created by Terraform"
+
+# Parameters (example)
+build_pipeline_parameters = [
+  {
+    name          = "ENV"
+    description   = "Deployment environment"
+    default_value = "dev"
+  }
+]
+
+# Tags
+build_pipeline_defined_tags  = {}
+build_pipeline_freeform_tags = { "Environment" = "dev" }
