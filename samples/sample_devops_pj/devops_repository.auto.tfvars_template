@@ -1,0 +1,26 @@
+devops_repositories_map = {
+  "devops_repo_1" = {
+    is_devops_repository_type_mirror  = false
+    devops_repository_name            = "sample-devops-repository-1"
+    devops_repository_description     = "Sample DevOps repository for demonstration"
+    devops_repository_repository_type = "HOSTED"
+    devops_repository_default_branch  = "main"
+    devops_repository_freeform_tags = {
+      "Environment" = "Sample"
+      "Repository"  = "DevOps"
+    }
+    devops_repository_defined_tags = {}
+  },
+  "devops_repo_2" = {
+    is_devops_repository_type_mirror  = false
+    devops_repository_name            = "sample-devops-repository-2"
+    devops_repository_description     = "Sample DevOps repository for demonstration"
+    devops_repository_repository_type = "HOSTED"
+    devops_repository_default_branch  = "master"
+    devops_repository_freeform_tags = {
+      "Environment" = "Sample"
+      "Repository"  = "DevOps"
+    }
+    devops_repository_defined_tags = {}
+  }
+}
