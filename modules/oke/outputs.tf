@@ -1,4 +1,4 @@
-output "build_pipeline_ocid" {
-  description = "OCID of the build pipeline"
-  value       = oci_devops_build_pipeline.build_pipeline.id
+output "oke_cluster_id" {
+  description = "The OCID of the OKE cluster."
+  value       = oci_containerengine_cluster.oke_cluster.id
 }

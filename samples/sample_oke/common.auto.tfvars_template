@@ -1,0 +1,20 @@
+# Copy this file to common.auto.tfvars and fill the values.
+
+# OCI authentication
+my_oci_tenancy_ocid      = "<enter the value here>"
+my_user_ocid             = "<enter the value here>"
+my_user_fingerprint      = "<enter the value here>"
+my_user_private_key_path = "../oci_api_key.pem"
+my_oci_region            = "ap-tokyo-1"
+
+# Compartment, VCN and subnets
+oke_cluster_compartment_id        = "<enter the value here>"
+oke_cluster_vcn_id                = "<enter the value here>"
+oke_cluster_subnet_id             = "<enter the value here>"
+oke_cluster_service_lb_subnet_ids = ["<enter the value here>"]
+
+# OKE cluster
+oke_cluster_name = "example-oke-cluster"
+# optional: specify a k8s version like "v1.25.4"
+kubernetes_version                  = "v1.34.2"
+oke_cluster_is_image_policy_enabled = false

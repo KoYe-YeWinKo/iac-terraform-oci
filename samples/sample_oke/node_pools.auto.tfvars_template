@@ -1,0 +1,44 @@
+# Example node pool map for `oke_cluster_node_pool_map`.
+# Copy this file to `node_pools.auto.tfvars` or merge into `common.auto.tfvars`.
+
+oke_cluster_node_pool_map = {
+  "example-pool" = {
+    # Required: compartment where node pool instances run
+    oke_cluster_node_pool_compartment_id = "<enter the value here>"
+
+    # Required: display name for the node pool
+    oke_cluster_node_pool_name = "example-nodepool"
+
+    # Required: subnet where nodes will be placed
+    oke_cluster_node_pool_node_subnet_id = "<enter the value here>"
+
+    # Required: number of nodes in the pool (initial size)
+    oke_cluster_node_pool_node_size = 2
+
+    # Required: shape identifier
+    oke_cluster_node_pool_node_shape = "VM.Standard.E6.Flex"
+    oke_cluster_node_pool_node_shape_ocpus = 2
+    oke_cluster_node_pool_node_shape_memory_in_gbs = 8
+
+    # Notes:
+    # - Some shapes (like E6 Flex) do not support preemptible instances.
+    #   The module now only adds preemptible configuration if you specify
+    #   `oke_cluster_node_pool_node_preemptible_config_preemption_action_type`.
+    # - To enable preemptible behavior (when supported by shape) uncomment below:
+    #oke_cluster_node_pool_node_preemptible_config_preemption_action_type = "TERMINATE"
+    #oke_cluster_node_pool_node_preemptible_config_preemption_action_is_preserve_boot_volume = false
+
+    # Required: availability domain string for placement (e.g. "AD-1")
+    oke_cluster_node_pool_node_placement_availability_domain = "uDIl:AP-TOKYO-1-AD-1"
+
+    # Optional: SSH public keys (list)
+    # oke_cluster_node_pool_ssh_public_keys = ["ssh-rsa AAAA... user@example.com"]
+
+    # Optional: image id, boot volume, and other advanced fields can be set here as needed
+    oke_cluster_node_pool_node_source_details_boot_volume_size_in_gbs = 100
+    oke_cluster_node_pool_node_source_details_image_id = "<enter the value here>"
+    oke_cluster_node_pool_node_source_details_source_type = "IMAGE" # or "BOOT_VOLUME"
+    oke_cluster_node_pool_pod_network_option_pod_subnet_ids = ["<enter the value here>"]
+
+  }
+}

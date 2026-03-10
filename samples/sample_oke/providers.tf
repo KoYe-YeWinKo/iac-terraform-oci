@@ -4,14 +4,4 @@ provider "oci" {
   fingerprint      = var.my_user_fingerprint
   private_key_path = var.my_user_private_key_path
   region           = var.my_oci_region
-  #disable_auto_retries = var.disable_auto_retries
-}
-
-terraform {
-  required_providers {
-    oci = {
-      source  = "oracle/oci"
-      version = ">= 8.2.0"
-    }
-  }
 }
