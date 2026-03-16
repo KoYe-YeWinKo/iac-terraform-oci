@@ -34,27 +34,27 @@ resource "oci_containerengine_cluster" "oke_cluster" {
     dynamic "kubernetes_network_config" {
       for_each = var.oke_cluster_pods_cidr != null || var.oke_cluster_services_cidr != null ? [1] : []
       content {
-        pods_cidr      = var.oke_cluster_pods_cidr
+        pods_cidr     = var.oke_cluster_pods_cidr
         services_cidr = var.oke_cluster_services_cidr
       }
     }
     dynamic "open_id_connect_token_authentication_config" {
       for_each = var.oke_cluster_is_oidc_auth_enabled ? [1] : []
       content {
-        ca_certificate             = var.oke_cluster_oidc_ca_certificate
-        client_id                  = var.oke_cluster_oidc_client_id
-        configuration_file         = var.oke_cluster_oidc_configuration_file
-        groups_claim               = var.oke_cluster_oidc_groups_claim
-        groups_prefix              = var.oke_cluster_oidc_groups_prefix
+        ca_certificate                  = var.oke_cluster_oidc_ca_certificate
+        client_id                       = var.oke_cluster_oidc_client_id
+        configuration_file              = var.oke_cluster_oidc_configuration_file
+        groups_claim                    = var.oke_cluster_oidc_groups_claim
+        groups_prefix                   = var.oke_cluster_oidc_groups_prefix
         is_open_id_connect_auth_enabled = var.oke_cluster_is_oidc_auth_enabled
-        issuer_url                 = var.oke_cluster_oidc_issuer_url
+        issuer_url                      = var.oke_cluster_oidc_issuer_url
         required_claims {
           key   = var.oke_cluster_oidc_required_claims_key
           value = var.oke_cluster_oidc_required_claims_value
         }
         signing_algorithms = var.oke_cluster_oidc_signing_algorithms
-        username_claim    = var.oke_cluster_oidc_username_claim
-        username_prefix   = var.oke_cluster_oidc_username_prefix
+        username_claim     = var.oke_cluster_oidc_username_claim
+        username_prefix    = var.oke_cluster_oidc_username_prefix
       }
     }
     dynamic "open_id_connect_discovery" {
@@ -81,10 +81,10 @@ resource "oci_containerengine_cluster" "oke_cluster" {
 resource "oci_containerengine_node_pool" "oke_node_pool" {
   for_each = var.oke_cluster_node_pool_map
 
-  cluster_id          = oci_containerengine_cluster.oke_cluster.id
-  compartment_id      = each.value.oke_cluster_node_pool_compartment_id
-  defined_tags        = each.value.oke_cluster_node_pool_defined_tags
-  freeform_tags       = each.value.oke_cluster_node_pool_freeform_tags
+  cluster_id     = oci_containerengine_cluster.oke_cluster.id
+  compartment_id = each.value.oke_cluster_node_pool_compartment_id
+  defined_tags   = each.value.oke_cluster_node_pool_defined_tags
+  freeform_tags  = each.value.oke_cluster_node_pool_freeform_tags
   dynamic "initial_node_labels" {
     for_each = each.value.oke_cluster_node_pool_initial_node_labels
     content {
@@ -92,8 +92,8 @@ resource "oci_containerengine_node_pool" "oke_node_pool" {
       value = initial_node_labels.value
     }
   }
-  kubernetes_version  = each.value.oke_cluster_node_pool_kubernetes_version
-  name                = each.value.oke_cluster_node_pool_name
+  kubernetes_version = each.value.oke_cluster_node_pool_kubernetes_version
+  name               = each.value.oke_cluster_node_pool_name
   node_config_details {
     is_pv_encryption_in_transit_enabled = each.value.oke_cluster_node_pool_is_pv_encryption_in_transit_enabled
     kms_key_id                          = each.value.oke_cluster_node_pool_kms_key_id
@@ -109,7 +109,7 @@ resource "oci_containerengine_node_pool" "oke_node_pool" {
     placement_configs {
       availability_domain     = each.value.oke_cluster_node_pool_node_placement_availability_domain
       capacity_reservation_id = each.value.oke_cluster_node_pool_node_capacity_reservation_id
-      fault_domains            = each.value.oke_cluster_node_pool_node_placement_fault_domains
+      fault_domains           = each.value.oke_cluster_node_pool_node_placement_fault_domains
       dynamic "preemptible_node_config" {
         for_each = each.value.oke_cluster_node_pool_node_preemptible_config_preemption_action_type != null ? [1] : []
         content {
@@ -124,8 +124,8 @@ resource "oci_containerengine_node_pool" "oke_node_pool" {
     size = each.value.oke_cluster_node_pool_node_size
   }
   node_eviction_node_pool_settings {
-    eviction_grace_duration                = each.value.oke_cluster_node_pool_eviction_grace_duration
-    is_force_action_after_grace_duration   = each.value.oke_cluster_node_pool_is_force_action_after_grace_duration
+    eviction_grace_duration              = each.value.oke_cluster_node_pool_eviction_grace_duration
+    is_force_action_after_grace_duration = each.value.oke_cluster_node_pool_is_force_action_after_grace_duration
     is_force_delete_after_grace_duration = each.value.oke_cluster_node_pool_is_force_delete_after_grace_duration
   }
   node_metadata = each.value.oke_cluster_node_pool_metadata
@@ -140,21 +140,21 @@ resource "oci_containerengine_node_pool" "oke_node_pool" {
     memory_in_gbs = each.value.oke_cluster_node_pool_node_shape_memory_in_gbs
     ocpus         = each.value.oke_cluster_node_pool_node_shape_ocpus
   }
-node_source_details {
-      boot_volume_size_in_gbs = each.value.oke_cluster_node_pool_node_source_details_boot_volume_size_in_gbs
-      image_id                = each.value.oke_cluster_node_pool_node_source_details_image_id
-      source_type             = each.value.oke_cluster_node_pool_node_source_details_source_type
+  node_source_details {
+    boot_volume_size_in_gbs = each.value.oke_cluster_node_pool_node_source_details_boot_volume_size_in_gbs
+    image_id                = each.value.oke_cluster_node_pool_node_source_details_image_id
+    source_type             = each.value.oke_cluster_node_pool_node_source_details_source_type
   }
   ssh_public_key = each.value.oke_cluster_node_pool_ssh_public_key
 }
 
 resource "oci_containerengine_virtual_node_pool" "oke_virtual_node_pool" {
-  for_each                    = var.virtual_node_pool_map
-  cluster_id                  = oci_containerengine_cluster.oke_cluster.id
-  compartment_id              = each.value.oke_cluster_virtual_node_pool_compartment_id
-  defined_tags                = each.value.oke_cluster_virtual_node_pool_defined_tags
-  display_name                = each.value.oke_cluster_virtual_node_pool_display_name
-  freeform_tags               = each.value.oke_cluster_virtual_node_pool_freeform_tags
+  for_each       = var.virtual_node_pool_map
+  cluster_id     = oci_containerengine_cluster.oke_cluster.id
+  compartment_id = each.value.oke_cluster_virtual_node_pool_compartment_id
+  defined_tags   = each.value.oke_cluster_virtual_node_pool_defined_tags
+  display_name   = each.value.oke_cluster_virtual_node_pool_display_name
+  freeform_tags  = each.value.oke_cluster_virtual_node_pool_freeform_tags
   dynamic "initial_virtual_node_labels" {
     for_each = each.value.oke_cluster_virtual_node_pool_initial_virtual_node_labels
     content {
@@ -162,7 +162,7 @@ resource "oci_containerengine_virtual_node_pool" "oke_virtual_node_pool" {
       value = initial_virtual_node_labels.value
     }
   }
-  nsg_ids                     = each.value.oke_cluster_virtual_node_pool_nsg_ids
+  nsg_ids = each.value.oke_cluster_virtual_node_pool_nsg_ids
   placement_configurations {
     availability_domain = each.value.oke_cluster_virtual_node_placement_availability_domain
     fault_domain        = each.value.oke_cluster_virtual_node_placement_fault_domain
@@ -173,7 +173,7 @@ resource "oci_containerengine_virtual_node_pool" "oke_virtual_node_pool" {
     shape     = each.value.oke_cluster_virtual_node_pod_shape
     subnet_id = each.value.oke_cluster_virtual_node_pod_subnet_id
   }
-  size   = each.value.oke_cluster_virtual_node_size
+  size = each.value.oke_cluster_virtual_node_size
   dynamic "taints" {
     for_each = each.value.oke_cluster_virtual_node_taints
     content {
@@ -225,6 +225,6 @@ resource "oci_containerengine_addon" "oke_cluster_addon" {
       value = configuration.value
     }
   }
-  override_existing                = each.value.oke_addon_override_existing
-  version                          = each.value.oke_addon_version
+  override_existing = each.value.oke_addon_override_existing
+  version           = each.value.oke_addon_version
 }

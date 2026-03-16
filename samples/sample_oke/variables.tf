@@ -95,23 +95,23 @@ variable "kubernetes_version" {
 variable "oke_cluster_node_pool_map" {
   description = "Map of node pools to create by the OKE module. See modules/oke/variables.tf for schema."
   type = map(object({
-    oke_cluster_node_pool_name                               = string
-    oke_cluster_node_pool_node_shape                         = string
-    oke_cluster_node_pool_node_subnet_id                     = string
-    oke_cluster_node_pool_freeform_tags                      = optional(map(string), {})
-    oke_cluster_node_pool_defined_tags                       = optional(map(any), {})
-    oke_cluster_node_pool_ssh_public_keys                    = optional(list(string), [])
-    oke_cluster_node_pool_compartment_id                     = string
-    oke_cluster_node_pool_node_size                          = number
-    oke_cluster_node_pool_node_placement_availability_domain = string
-    oke_cluster_node_pool_node_shape_memory_in_gbs               = optional(number, null)
-    oke_cluster_node_pool_node_shape_ocpus                       = optional(number, null)
+    oke_cluster_node_pool_name                                        = string
+    oke_cluster_node_pool_node_shape                                  = string
+    oke_cluster_node_pool_node_subnet_id                              = string
+    oke_cluster_node_pool_freeform_tags                               = optional(map(string), {})
+    oke_cluster_node_pool_defined_tags                                = optional(map(any), {})
+    oke_cluster_node_pool_ssh_public_keys                             = optional(list(string), [])
+    oke_cluster_node_pool_compartment_id                              = string
+    oke_cluster_node_pool_node_size                                   = number
+    oke_cluster_node_pool_node_placement_availability_domain          = string
+    oke_cluster_node_pool_node_shape_memory_in_gbs                    = optional(number, null)
+    oke_cluster_node_pool_node_shape_ocpus                            = optional(number, null)
     oke_cluster_node_pool_node_source_details_boot_volume_size_in_gbs = optional(number, null)
     oke_cluster_node_pool_node_source_details_image_id                = optional(string, null)
     oke_cluster_node_pool_node_source_details_source_type             = optional(string, null)
-    oke_cluster_node_pool_pod_network_option_pod_subnet_ids = list(string)
-    oke_cluster_node_pool_node_shape_ocpus                       = optional(number, null)
-    oke_cluster_node_pool_node_shape_memory_in_gbs               = optional(number, null)
+    oke_cluster_node_pool_pod_network_option_pod_subnet_ids           = list(string)
+    oke_cluster_node_pool_node_shape_ocpus                            = optional(number, null)
+    oke_cluster_node_pool_node_shape_memory_in_gbs                    = optional(number, null)
   }))
   default = {}
 }

@@ -239,42 +239,42 @@ variable "oke_cluster_vcn_id" {
 variable "oke_cluster_node_pool_map" {
   description = "Map of node pools to create, keyed by pool name."
   type = map(object({
-    oke_cluster_node_pool_compartment_id                         = string
-    oke_cluster_node_pool_defined_tags                           = optional(map(any), {})
-    oke_cluster_node_pool_freeform_tags                          = optional(map(string), {})
-    oke_cluster_node_pool_initial_node_labels                    = optional(list(object({key=string, value=string})), [])
-    oke_cluster_node_pool_kubernetes_version                     = optional(string, null)
-    oke_cluster_node_pool_name                                   = string
-    oke_cluster_node_pool_is_pv_encryption_in_transit_enabled    = optional(bool, false)
-    oke_cluster_node_pool_kms_key_id                             = optional(string, null)
-    oke_cluster_node_pool_pod_network_option_cni_type               = optional(string, "OCI_VCN_IP_NATIVE")
-    oke_cluster_node_pool_pod_network_option_max_pods_per_node      = optional(number, 31)
-    oke_cluster_node_pool_pod_network_option_pod_nsg_ids            = optional(list(string), [])
-    oke_cluster_node_pool_pod_network_option_pod_subnet_ids         = optional(list(string), [])
-    oke_cluster_node_pool_nsg_ids                                = optional(list(string), [])
-    oke_cluster_node_pool_node_placement_availability_domain     = string
-    oke_cluster_node_pool_node_capacity_reservation_id           = optional(string, null)
-    oke_cluster_node_pool_node_placement_fault_domains            = optional(list(string), [])
-    oke_cluster_node_pool_node_preemptible_config_preemption_action_is_preserve_boot_volume  = optional(bool, false)
+    oke_cluster_node_pool_compartment_id                                                    = string
+    oke_cluster_node_pool_defined_tags                                                      = optional(map(any), {})
+    oke_cluster_node_pool_freeform_tags                                                     = optional(map(string), {})
+    oke_cluster_node_pool_initial_node_labels                                               = optional(list(object({ key = string, value = string })), [])
+    oke_cluster_node_pool_kubernetes_version                                                = optional(string, null)
+    oke_cluster_node_pool_name                                                              = string
+    oke_cluster_node_pool_is_pv_encryption_in_transit_enabled                               = optional(bool, false)
+    oke_cluster_node_pool_kms_key_id                                                        = optional(string, null)
+    oke_cluster_node_pool_pod_network_option_cni_type                                       = optional(string, "OCI_VCN_IP_NATIVE")
+    oke_cluster_node_pool_pod_network_option_max_pods_per_node                              = optional(number, 31)
+    oke_cluster_node_pool_pod_network_option_pod_nsg_ids                                    = optional(list(string), [])
+    oke_cluster_node_pool_pod_network_option_pod_subnet_ids                                 = optional(list(string), [])
+    oke_cluster_node_pool_nsg_ids                                                           = optional(list(string), [])
+    oke_cluster_node_pool_node_placement_availability_domain                                = string
+    oke_cluster_node_pool_node_capacity_reservation_id                                      = optional(string, null)
+    oke_cluster_node_pool_node_placement_fault_domains                                      = optional(list(string), [])
+    oke_cluster_node_pool_node_preemptible_config_preemption_action_is_preserve_boot_volume = optional(bool, false)
     # set to null to disable preemptible config entirely
-    oke_cluster_node_pool_node_preemptible_config_preemption_action_type           = optional(string, null)
-    oke_cluster_node_pool_node_subnet_id                         = string
-    oke_cluster_node_pool_node_size                              = number
-    oke_cluster_node_pool_eviction_grace_duration                = optional(string, null)
-    oke_cluster_node_pool_is_force_action_after_grace_duration   = optional(bool, false)
-    oke_cluster_node_pool_is_force_delete_after_grace_duration = optional(bool, false)
-    oke_cluster_node_pool_metadata                               = optional(map(string), {})
-    oke_cluster_node_pool_cycle_modes                            = optional(list(string), [])
-    oke_cluster_node_pool_is_node_cycling_enabled                = optional(bool, false)
-    oke_cluster_node_pool_maximum_surge                          = optional(number, null)
-    oke_cluster_node_pool_maximum_unavailable                    = optional(number, null)
-    oke_cluster_node_pool_node_shape                             = string
-    oke_cluster_node_pool_node_shape_memory_in_gbs               = optional(number, null)
-    oke_cluster_node_pool_node_shape_ocpus                       = optional(number, null)
-    oke_cluster_node_pool_node_source_details_boot_volume_size_in_gbs = optional(number, null)
-    oke_cluster_node_pool_node_source_details_image_id                = optional(string, null)
-    oke_cluster_node_pool_node_source_details_source_type             = optional(string, null)
-    oke_cluster_node_pool_ssh_public_key                        = optional(string, null)
+    oke_cluster_node_pool_node_preemptible_config_preemption_action_type = optional(string, null)
+    oke_cluster_node_pool_node_subnet_id                                 = string
+    oke_cluster_node_pool_node_size                                      = number
+    oke_cluster_node_pool_eviction_grace_duration                        = optional(string, null)
+    oke_cluster_node_pool_is_force_action_after_grace_duration           = optional(bool, false)
+    oke_cluster_node_pool_is_force_delete_after_grace_duration           = optional(bool, false)
+    oke_cluster_node_pool_metadata                                       = optional(map(string), {})
+    oke_cluster_node_pool_cycle_modes                                    = optional(list(string), [])
+    oke_cluster_node_pool_is_node_cycling_enabled                        = optional(bool, false)
+    oke_cluster_node_pool_maximum_surge                                  = optional(number, null)
+    oke_cluster_node_pool_maximum_unavailable                            = optional(number, null)
+    oke_cluster_node_pool_node_shape                                     = string
+    oke_cluster_node_pool_node_shape_memory_in_gbs                       = optional(number, null)
+    oke_cluster_node_pool_node_shape_ocpus                               = optional(number, null)
+    oke_cluster_node_pool_node_source_details_boot_volume_size_in_gbs    = optional(number, null)
+    oke_cluster_node_pool_node_source_details_image_id                   = optional(string, null)
+    oke_cluster_node_pool_node_source_details_source_type                = optional(string, null)
+    oke_cluster_node_pool_ssh_public_key                                 = optional(string, null)
   }))
   default = {}
 }
@@ -286,22 +286,22 @@ variable "oke_cluster_node_pool_map" {
 variable "virtual_node_pool_map" {
   description = "Map of virtual node pools to create, keyed by pool name."
   type = map(object({
-    oke_cluster_virtual_node_pool_compartment_id           = string
-    oke_cluster_virtual_node_pool_defined_tags             = optional(map(any), {})
-    oke_cluster_virtual_node_pool_display_name             = string
-    oke_cluster_virtual_node_pool_freeform_tags            = optional(map(string), {})
-    oke_cluster_virtual_node_pool_initial_virtual_node_labels           = optional(map(string), {})
-    oke_cluster_virtual_node_pool_nsg_ids                  = optional(list(string), [])
-    oke_cluster_virtual_node_placement_availability_domain = string
-    oke_cluster_virtual_node_placement_fault_domain        = optional(string, null)
-    oke_cluster_virtual_node_placement_subnet_id           = string
-    oke_cluster_virtual_node_pod_nsg_ids                   = optional(list(string), [])
-    oke_cluster_virtual_node_pod_shape                     = string
-    oke_cluster_virtual_node_pod_subnet_id                 = string
-    oke_cluster_virtual_node_size                          = number
-    oke_cluster_virtual_node_taints                        = optional(list(object({effect=string, key=string, value=string})), [])
-    oke_cluster_virtual_node_tag_freeform_tags             = optional(map(string), {})
-    oke_cluster_virtual_node_tag_defined_tags              = optional(map(any), {})
+    oke_cluster_virtual_node_pool_compartment_id              = string
+    oke_cluster_virtual_node_pool_defined_tags                = optional(map(any), {})
+    oke_cluster_virtual_node_pool_display_name                = string
+    oke_cluster_virtual_node_pool_freeform_tags               = optional(map(string), {})
+    oke_cluster_virtual_node_pool_initial_virtual_node_labels = optional(map(string), {})
+    oke_cluster_virtual_node_pool_nsg_ids                     = optional(list(string), [])
+    oke_cluster_virtual_node_placement_availability_domain    = string
+    oke_cluster_virtual_node_placement_fault_domain           = optional(string, null)
+    oke_cluster_virtual_node_placement_subnet_id              = string
+    oke_cluster_virtual_node_pod_nsg_ids                      = optional(list(string), [])
+    oke_cluster_virtual_node_pod_shape                        = string
+    oke_cluster_virtual_node_pod_subnet_id                    = string
+    oke_cluster_virtual_node_size                             = number
+    oke_cluster_virtual_node_taints                           = optional(list(object({ effect = string, key = string, value = string })), [])
+    oke_cluster_virtual_node_tag_freeform_tags                = optional(map(string), {})
+    oke_cluster_virtual_node_tag_defined_tags                 = optional(map(any), {})
   }))
   default = {}
 }
@@ -315,12 +315,12 @@ variable "oke_cluster_addon_map" {
   type = map(object({
     addon_name                                 = string
     oke_addon_remove_addon_resources_on_delete = optional(bool, false)
-    oke_addon_configurations                   = optional(object({
+    oke_addon_configurations = optional(object({
       key   = string
       value = string
     }))
-    oke_addon_override_existing                = optional(bool, false)
-    oke_addon_version                          = optional(string, null)
+    oke_addon_override_existing = optional(bool, false)
+    oke_addon_version           = optional(string, null)
   }))
   default = {}
 }
